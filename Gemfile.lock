@@ -75,6 +75,7 @@ GEM
     bootsnap (1.12.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (9.1.0)
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.1.10)
@@ -175,6 +176,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.13)
   bcrypt (~> 3.1.7)
   bootsnap
+  byebug (~> 9.0, >= 9.0.6)
   debug
   pg (~> 1.1)
   puma (~> 5.0)
