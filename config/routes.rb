@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  get '/hello', to: 'application#hello_world'
+  resources :users, only: [:show, :create]
+
+
+  post '/login', to: 'sessions#login'
+  delete "/logout", to: "sessions#destroy"
+  
+  
 
   get '*path',
       to: 'fallback#index',
