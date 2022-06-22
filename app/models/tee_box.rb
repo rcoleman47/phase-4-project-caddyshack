@@ -9,4 +9,5 @@ class TeeBox < ApplicationRecord
   validates :color, presence: true, inclusion: { in: %w(Gold Blue Black White Red) }
   validates :par, presence: true, numericality: { only_integer: true, less_than: 75, greater_than: 68 }
 
+
 end
