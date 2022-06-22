@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
 
   post '/login', to: 'sessions#login'
-  delete "/logout", to: "sessions#destroy"
+  delete '/logout', to: 'sessions#logout'
   
-  
+
 
   get '*path',
       to: 'fallback#index',
