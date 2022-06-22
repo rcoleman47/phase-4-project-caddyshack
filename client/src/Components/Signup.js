@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Signup() {
+export default function Signup({ setUser }) {
   const [error, setError]  = useState(null);
   const [form, setForm] = useState({
     username: '',
@@ -30,7 +30,7 @@ export default function Signup() {
     })
     .then(r=>{
       if(r.ok){ 
-        r.json().then(r => console.log(r))
+        r.json().then(r => setUser(r))
         
         setForm({
           username: '',
@@ -48,9 +48,10 @@ export default function Signup() {
 
 
   return (
-    <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit} >
+    <div>
+     
+      <form className='box' onSubmit={handleSubmit} >
+        <h1>Sign Up</h1>
 
         <label>
           Username:
@@ -60,8 +61,6 @@ export default function Signup() {
             onChange={handleChange} 
           />
         </label>
-
-        <br />
 
         <label>
           Email Address:
@@ -73,8 +72,6 @@ export default function Signup() {
           />
         </label>
 
-        <br />
-
         <label>
           Password:
           <input 
@@ -84,12 +81,10 @@ export default function Signup() {
             onChange={handleChange} 
           />
         </label>
-        
-        <br />
 
         <input type="submit" value="Create" />
         {error ? <div>{error}</div> : null}
       </form>
-    </>
+    </div>
   )
 }

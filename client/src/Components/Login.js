@@ -1,11 +1,14 @@
-import { useState} from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login({ setUser }) {
   const [error, setError]  = useState(null);
   const [form, setForm] = useState({
     username: '',
     password: ''
   });
+
+  const nav = useNavigate();
 
   const {username, password} = form;
 
@@ -27,7 +30,7 @@ export default function Login() {
     })
     .then(r=>{
       if(r.ok){ 
-        r.json().then(r => console.log(r));
+        r.json().then(r => setUser(r));
         
         setForm({
           username: '',
@@ -35,6 +38,8 @@ export default function Login() {
         });
         
         setError(null);
+
+        nav('/');
       }
       else
         r.json().then(json=>setError(json.error))
@@ -44,9 +49,11 @@ export default function Login() {
 
 
   return (
-    <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit} >
+    <div>
+      
+      <form className='box' onSubmit={handleSubmit} >
+        <h1>Golfer</h1>
+        <h1>Login</h1>
 
         <label>
           Username:
@@ -56,8 +63,6 @@ export default function Login() {
             onChange={handleChange} 
           />
         </label>
-
-        <br />
 
         <label>
           Password:
@@ -69,11 +74,11 @@ export default function Login() {
           />
         </label>
         
-        <br />
+        {error ? <div>{error}</div> : null}
 
         <input type="submit" value="Login" />
-        {error ? <div>{error}</div> : null}
+       
       </form>
-    </>
+    </div>
   )
 }
