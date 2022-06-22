@@ -45,7 +45,11 @@ export default function Signup({ setUser }) {
     });
     
   };
+ 
 
+  const passwordError = error ? error.filter( e => e.includes('Password') ) : null;
+  const emailError = error ? error.filter( e => e.includes('Email') ) : null;
+  const usernameError = error ? error.filter( e => e.includes('Username') ) : null;
 
   return (
     <div>
@@ -53,8 +57,10 @@ export default function Signup({ setUser }) {
       <form className='box' onSubmit={handleSubmit} >
         <h1>Sign Up</h1>
 
-        <label>
-          Username:
+        <label className={usernameError ? "error" : "success"}>
+
+          {usernameError ? usernameError[0] : "Username:"}
+
           <input 
             name='username'
             type='text' value={username} 
@@ -62,8 +68,10 @@ export default function Signup({ setUser }) {
           />
         </label>
 
-        <label>
-          Email Address:
+        <label className={emailError ? "error" : "success"}>
+
+          {emailError ? emailError[0] : "Email Address:"}
+
           <input 
             name='email'
             type='text' 
@@ -72,18 +80,20 @@ export default function Signup({ setUser }) {
           />
         </label>
 
-        <label>
-          Password:
+        <label className={passwordError ? "error" : "success"}>
+
+          {passwordError ? passwordError[0] : "Password:"}
+
           <input 
             name='password'
-            type='text' 
+            type='password'
             value={password} 
             onChange={handleChange} 
           />
         </label>
 
         <input type="submit" value="Create" />
-        {error ? <div>{error}</div> : null}
+      
       </form>
     </div>
   )

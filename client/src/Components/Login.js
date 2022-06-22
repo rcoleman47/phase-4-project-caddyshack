@@ -68,13 +68,13 @@ export default function Login({ setUser }) {
           Password:
           <input 
             name='password'
-            type='text' 
+            type='password' 
             value={password} 
             onChange={handleChange} 
           />
         </label>
         
-        {error ? <div>{error}</div> : null}
+        {error ? <h5>{error}</h5> : null}
 
         <input type="submit" value="Login" />
        

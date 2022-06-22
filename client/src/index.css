@@ -5,7 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('https://www.unitedcountry.com/GolfProperty/img/Golf_Heading_3.jpg');
-  background-size: cover;
+  background-size: 2000px;
 }
 
 code {
@@ -20,6 +20,7 @@ code {
   align-content: center;
 }
 
+/* Login / Sign up forms */
 .box{
   height: 500px;
   width: 500px;
@@ -41,7 +42,17 @@ code {
   font-weight: 800;
 }
 
-.box input[type = "text"],.box input[type = "password"]{
+.success {
+  color: black;
+  font-weight: 600;
+}
+
+.error {
+  color: #D8000C;
+  font-weight: 600;
+}
+
+.box input[type = "text"]{
   border:0;
   background: none;
   display: block;
@@ -54,9 +65,31 @@ code {
   color: black;
   border-radius: 24px;
   transition: 0.25s;
+  font-weight: 600;
 }
 
-.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+.box input[type = "text"]:focus{
+  width: 280px;
+  border-color: black;
+}
+
+.box input[type = "password"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid black;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-family: Verdana, sans-serif;
+}
+
+.box input[type = "password"]:focus{
   width: 280px;
   border-color: black;
 }
@@ -79,4 +112,8 @@ code {
 .box input[type = "submit"]:hover{
   background: black;
   color: white;
+}
+
+.box h5 {
+  color: #D8000C;
 }
