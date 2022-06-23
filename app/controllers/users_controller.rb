@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   
   def show
     current_user = User.find_by(id: session[:user_id])
-    render json: current_user
+    if current_user
+      render json: current_user
+    else
+      render json: { error: "not singed in"}, status: :not_found
+    end
   end
 
   def create

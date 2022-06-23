@@ -5,15 +5,12 @@ const slice = createSlice({
   initialState: {value: false},
   reducers:{
     authorize: state => {
-      state.value = true
-    },
-    unauthorize: state => {
-      state.value = false
-    },
+      state.value = !state.value
+    }
   }
 });
 
-const { authorize, unauthorize } = slice.actions;
+const { authorize } = slice.actions;
 
-export { authorize, unauthorize };
+export { authorize };
 export default slice.reducer;

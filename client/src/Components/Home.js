@@ -1,26 +1,12 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate, Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../Reducers/user';
-import { authorize, unauthorize } from '../Reducers/auth';
-import NavBar from './NavBar';
+import { authorize } from '../Reducers/auth';
 
-export default function Home() {
-  const user = useSelector(state => state.user.value);
-  const auth = useSelector(state => state.auth.value);
-  
+export default function Home() { 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetch(`/authorized_user`)
-      .then((r) => {
-        if(r.ok){ 
-          r.json().then(r => dispatch(login(r)));
-          dispatch(authorize());
-        }
-      }
-    );
-  },[]);
+  const nav = useNavigate();
 
   const handleLogout = () => {
     fetch('/logout', {
@@ -28,21 +14,16 @@ export default function Home() {
     })
 
     dispatch(logout());
-    dispatch(unauthorize());  
+    dispatch(authorize());  
 
-    <Navigate to='/' />  
+    nav('/login'); 
   };
-
-  console.log(user)
-
-  if(!auth){return <Navigate to='/login' />};
 
   return (
     <>
-      <NavBar />
-      <div>Hello {}!! 
-        <button onClick={handleLogout} >Logout</button>
-      </div>
+      <h1>ScoreCaddie</h1>
+      <button onClick={handleLogout} >Logout</button>
+      <Outlet />
     </>
   )
 }
