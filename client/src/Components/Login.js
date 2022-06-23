@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../Reducers/user';
+import { authorize } from '../Reducers/auth';
 
 export default function Login() {
   const [error, setError]  = useState(null);
@@ -10,15 +11,13 @@ export default function Login() {
     password: ''
   });
 
- 
   const dispatch = useDispatch();
+
   const nav = useNavigate();
 
-  const {username, password} = form;
-
   const handleChange = (e) => {
-    let key = e.target.name
-    let value = e.target.value
+    let key = e.target.name;
+    let value = e.target.value;
     setForm({
       ...form,
       [key]: value
@@ -36,6 +35,8 @@ export default function Login() {
       if(r.ok){ 
         r.json().then(r => dispatch(login(r)));
         
+        dispatch(authorize());
+
         setForm({
           username: '',
           password: ''
@@ -46,10 +47,12 @@ export default function Login() {
         nav('/');
       }
       else
-        r.json().then(json=>setError(json.error))
+        r.json().then(json=>setError(json.error));
     });
     
   };
+
+  const {username, password} = form;
 
 
   return (

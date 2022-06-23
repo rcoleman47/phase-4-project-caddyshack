@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../Reducers/user';
-import { authorize } from '../Reducers/auth';
+import { authorize, unauthorize } from '../Reducers/auth';
 import NavBar from './NavBar';
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`/users/:id`)
+    fetch(`/authorized_user`)
       .then((r) => {
         if(r.ok){ 
           r.json().then(r => dispatch(login(r)));
@@ -27,7 +27,8 @@ export default function Home() {
       method: 'DELETE',
     })
 
-    dispatch(logout());  
+    dispatch(logout());
+    dispatch(unauthorize());  
 
     <Navigate to='/' />  
   };

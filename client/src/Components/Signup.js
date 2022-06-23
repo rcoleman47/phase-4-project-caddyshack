@@ -1,6 +1,10 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../Reducers/user';
+import { authorize } from '../Reducers/auth';
 
-export default function Signup({ setUser }) {
+export default function Signup() {
   const [error, setError]  = useState(null);
   const [form, setForm] = useState({
     username: '',
@@ -8,7 +12,9 @@ export default function Signup({ setUser }) {
     password: ''
   });
 
-  const {username, email, password} = form;
+  const dispatch = useDispatch();
+
+  const nav = useNavigate();
 
   const handleChange = (e) => {
     let key = e.target.name
@@ -19,7 +25,6 @@ export default function Signup({ setUser }) {
     });
   };
 
-  console.log(form)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +35,9 @@ export default function Signup({ setUser }) {
     })
     .then(r=>{
       if(r.ok){ 
-        r.json().then(r => setUser(r))
+        r.json().then(r => dispatch(login(r)));
+        
+        dispatch(authorize());
         
         setForm({
           username: '',
@@ -39,13 +46,16 @@ export default function Signup({ setUser }) {
         });
         
         setError(null);
+        
+        nav('/');
       }
       else
         r.json().then(json=>setError(json.error))
     });
     
   };
- 
+
+  const {username, email, password} = form;
 
   const passwordError = error ? error.filter( e => e.includes('Password') ) : null;
   const emailError = error ? error.filter( e => e.includes('Email') ) : null;
