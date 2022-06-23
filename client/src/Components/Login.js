@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../Reducers/user';
 
-export default function Login({ setUser }) {
+export default function Login() {
   const [error, setError]  = useState(null);
   const [form, setForm] = useState({
     username: '',
     password: ''
   });
 
+ 
+  const dispatch = useDispatch();
   const nav = useNavigate();
 
   const {username, password} = form;
@@ -30,7 +34,7 @@ export default function Login({ setUser }) {
     })
     .then(r=>{
       if(r.ok){ 
-        r.json().then(r => setUser(r));
+        r.json().then(r => dispatch(login(r)));
         
         setForm({
           username: '',
