@@ -6,7 +6,6 @@ class ScoresController < ApplicationController
     render json: score, status: 202
   end
 
-
   private 
 
   def score_params

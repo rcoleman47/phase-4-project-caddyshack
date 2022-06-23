@@ -25,7 +25,7 @@ class TeeBoxesController < ApplicationController
   private 
 
   def tee_params
-    params.permit(:tee, :color, :par, :course_id)
+    params.permit(:tee, :color, :par, :slope, :rating, :course_id)
   end
 
   def tee_box

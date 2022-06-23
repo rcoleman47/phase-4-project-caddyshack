@@ -11,10 +11,10 @@ augusta = Course.create(name: "Augusta National Golf Club", address: "2604 Washi
 southern = Course.create(name: "Southern Hills Country Club", address: "2636 E 61st St", city: "Tulsa", state: "Oklahoma", image_url: "https://www.southernhillscc.com/images/dynamic/getImage.gif?ID=100004972")
 
 # Generate tee_boxes
-edmond = TeeBox.create(tee: "Championship", color: "Gold", par: 70, course_id: gc_edmond.id)
-stillwater = TeeBox.create(tee: "Championship", color: "Orange", par: 70, course_id: karsten.id)
-georgia = TeeBox.create(tee: "Championship", color: "Black", par: 70, course_id: augusta.id)
-tulsa = TeeBox.create(tee: "Championship", color: "Black", par: 70, course_id: southern.id)
+edmond = TeeBox.create(tee: "Championship", color: "Gold", slope: 113, rating:76, par: 70, course_id: gc_edmond.id)
+stillwater = TeeBox.create(tee: "Championship", color: "Orange", slope: 113, rating: 70, par: 70, course_id: karsten.id)
+georgia = TeeBox.create(tee: "Championship", color: "Black", slope: 113, rating: 72, par: 70, course_id: augusta.id)
+tulsa = TeeBox.create(tee: "Championship", color: "Black", slope: 113, rating: 71, par: 70, course_id: southern.id)
 
 # Generate Rounds
 r1 = Round.create(tee: "Championship", course_id: gc_edmond.id, user_id: ryan.id)

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if current_user
       render json: current_user
     else
-      render json: { error: "not singed in"}, status: :not_found
+      render json: { error: "not signed in"}, status: :not_found
     end
   end
 
