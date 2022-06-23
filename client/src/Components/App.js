@@ -1,6 +1,6 @@
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, useNavigate} from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../Reducers/user';
 import { authorize } from '../Reducers/auth';
 import Home from './Home';
@@ -11,10 +11,8 @@ import Courses from './Courses';
 import Rounds from './Rounds';
 
 function App() {
-  const user = useSelector(state => state.user.value);
-  const auth = useSelector(state => state.auth.value);
-  
   const dispatch = useDispatch();
+  const nav      = useNavigate();
 
   useEffect(() => {
     fetch(`/authorized_user`)
@@ -23,12 +21,10 @@ function App() {
           r.json().then(userObj => {
             dispatch(login(userObj))
             dispatch(authorize());
-            console.log(auth)
-            console.log(user)
             }
           );
         } else{
-          console.log("no user")
+          nav('/login');
         }
       }
     );

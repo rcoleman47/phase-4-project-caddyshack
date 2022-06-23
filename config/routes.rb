@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:show, :create]
+  resources :scores, only: [:update]
+  resources :rounds
 
   resources :courses, only: [:index, :show, :create, :update]
   resources :tee_boxes, only: [:index, :show, :create, :update]

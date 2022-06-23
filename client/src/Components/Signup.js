@@ -6,15 +6,16 @@ import { authorize } from '../Reducers/auth';
 
 export default function Signup() {
   const [error, setError]  = useState(null);
-  const [form, setForm] = useState({
+  const [form, setForm]    = useState({
     username: '',
     email: '',
     password: ''
   });
 
-  const dispatch = useDispatch();
 
-  const nav = useNavigate();
+  const dispatch = useDispatch();
+  const nav      = useNavigate();
+
 
   const handleChange = (e) => {
     let key = e.target.name
@@ -58,7 +59,7 @@ export default function Signup() {
   const {username, email, password} = form;
 
   const passwordError = error ? error.filter( e => e.includes('Password') ) : null;
-  const emailError = error ? error.filter( e => e.includes('Email') ) : null;
+  const emailError    = error ? error.filter( e => e.includes('Email') )    : null;
   const usernameError = error ? error.filter( e => e.includes('Username') ) : null;
 
   return (

@@ -1,5 +1,7 @@
-class TeeBoxSerializer < ActiveModel::Serializer
+class SingleTeeSerializer < ActiveModel::Serializer
   attributes :id, :course_name, :city, :state, :tee, :color, :par, :total_distance
+  
+  has_many :holes
   
   def course_name
     "#{object.course.name}"

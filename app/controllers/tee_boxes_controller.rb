@@ -6,7 +6,7 @@ class TeeBoxesController < ApplicationController
   end
 
   def show
-    render json: tee_box
+    render json: tee_box, serializer: SingleTeeSerializer
   end
 
   def create
@@ -19,7 +19,7 @@ class TeeBoxesController < ApplicationController
 
   def update
     tee_box.update!(tee_params)
-    render json: tee_box, status: 202
+    render json: tee_box, serializer: SingleTeeSerializer, status: 202
   end
 
   private 

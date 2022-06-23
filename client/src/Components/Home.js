@@ -1,17 +1,18 @@
-import { Navigate, useNavigate, Outlet } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useNavigate, Outlet, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../Reducers/user';
+import { logout } from '../Reducers/user';
 import { authorize } from '../Reducers/auth';
 
-export default function Home() { 
+export default function Home() {
+  const user     = useSelector(state => state.user.value);
+  
   const dispatch = useDispatch();
-  const nav = useNavigate();
+  const nav      = useNavigate();
 
   const handleLogout = () => {
     fetch('/logout', {
       method: 'DELETE',
-    })
+    });
 
     dispatch(logout());
     dispatch(authorize());  
@@ -21,8 +22,13 @@ export default function Home() {
 
   return (
     <>
-      <h1>ScoreCaddie</h1>
+      <h1>ScoreCaddie {user.username}!</h1>
       <button onClick={handleLogout} >Logout</button>
+
+      <NavLink to='/dashboard'>Dashboard</NavLink>
+      <NavLink to='/courses'>Courses</NavLink>
+      <NavLink to='/rounds'>Rounds</NavLink>
+
       <Outlet />
     </>
   )

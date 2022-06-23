@@ -6,14 +6,13 @@ import { authorize } from '../Reducers/auth';
 
 export default function Login() {
   const [error, setError]  = useState(null);
-  const [form, setForm] = useState({
+  const [form, setForm]    = useState({
     username: '',
     password: ''
   });
 
   const dispatch = useDispatch();
-
-  const nav = useNavigate();
+  const nav      = useNavigate();
 
   const handleChange = (e) => {
     let key = e.target.name;

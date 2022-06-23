@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 
-  # before_action :is_authorized, only: [:create, :update]
+  before_action :is_authorized, only: [:create, :update]
   
   def index
     courses = Course.all
@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    render json: course
+    render json: course, serializer: SingleCourseSerializer
   end
 
   def create
@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   end
 
   def update
-    course.update(course_params)
+    course.update!(course_params)
     render json: course, states: 202
   end
 

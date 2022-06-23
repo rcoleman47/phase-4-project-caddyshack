@@ -1,6 +1,6 @@
 class HolesController < ApplicationController
 
-  # before_action :is_authorized, only: [:update]
+  before_action :is_authorized, only: [:update]
 
   def index
     holes = Hole.all
@@ -12,7 +12,7 @@ class HolesController < ApplicationController
   end
 
   def update
-    hole.update(hole_params)
+    hole.update!(hole_params)
     render json: hole, status: 202
   end
 
