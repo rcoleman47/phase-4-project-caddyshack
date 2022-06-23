@@ -1,14 +1,17 @@
-import { useEffect } from 'react'
+import { useSelector } from 'react-redux';
+import CourseCard from './CourseCard';
+
 
 export default function Courses() {
+  const courses     = useSelector(state => state.golf.courses);
 
-  useEffect(() => {
-    fetch('/courses')
-    .then(r => r.json())
-    .then(data => console.log(data))
-  }, [])
+  const renderCourses = courses.map( course => <CourseCard key={course.id} course={course} />);
+
+  console.log(courses)
 
   return (
-    <div>Courses</div>
+    <div className='courseContainer'>
+      {renderCourses}
+    </div>
   )
 }

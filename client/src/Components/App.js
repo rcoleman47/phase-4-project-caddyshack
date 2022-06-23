@@ -2,7 +2,7 @@ import { Routes, Route, useNavigate} from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../Reducers/user';
-import { authorize } from '../Reducers/auth';
+// import { authorize } from '../Reducers/auth';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
@@ -15,12 +15,13 @@ function App() {
   const nav      = useNavigate();
 
   useEffect(() => {
+
     fetch(`/authorized_user`)
       .then((r) => {
         if(r.ok){ 
           r.json().then(userObj => {
             dispatch(login(userObj))
-            dispatch(authorize());
+            // dispatch(authorize());
             }
           );
         } else{
@@ -29,6 +30,8 @@ function App() {
       }
     );
   },[]);
+
+
  
   return (
     <div id="appBody">

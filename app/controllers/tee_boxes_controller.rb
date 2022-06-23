@@ -1,5 +1,6 @@
 class TeeBoxesController < ApplicationController
-
+  before_action :is_authorized, only: [:create, :update]
+  
   def index
     tee_boxes = TeeBox.all
     render json: tee_boxes

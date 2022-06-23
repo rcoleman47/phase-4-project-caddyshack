@@ -10,4 +10,7 @@ class TeeBox < ApplicationRecord
   validates :par, presence: true, numericality: { only_integer: true, less_than: 75, greater_than: 68 }
 
 
+  def total_distance
+    holes.pluck(:distance).sum
+  end
 end

@@ -1,8 +1,12 @@
 class TeeBoxSerializer < ActiveModel::Serializer
-  attributes :id, :course_name, :city, :state, :tee, :color, :par, :total_distance
+  attributes :id, :course_name, :image, :address, :city, :state, :tee, :color, :par, :total_distance
   
   def course_name
     "#{object.course.name}"
+  end
+
+  def image
+    "#{object.course.image_url}"
   end
 
   def address
@@ -17,7 +21,4 @@ class TeeBoxSerializer < ActiveModel::Serializer
     "#{object.course.state}"
   end
 
-  def total_distance
-    object.holes.pluck(:distance).sum
-  end
 end

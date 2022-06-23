@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-
+  before_action :is_authorized, only: [:create, :update, :destroy]
   def index
     rounds = current_user.rounds
     render json: rounds
@@ -22,7 +22,7 @@ class RoundsController < ApplicationController
     render json: round, serializer: SingleRoundSerializer, states: 202
   end
 
-  def delete
+  def destroy
     round.destroy
     head :no_content
   end
