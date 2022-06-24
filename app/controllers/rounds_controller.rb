@@ -23,8 +23,8 @@ class RoundsController < ApplicationController
   end
 
   def destroy
+    render json: round, status: :no_content
     round.destroy
-    head :no_content
   end
 
 

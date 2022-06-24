@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import ScorecardHoles from './ScorecardHoles';
 
 
-
-
-
 export default function NewScorecardForm() {
   const round = useSelector(state => state.golf.newRound);
 

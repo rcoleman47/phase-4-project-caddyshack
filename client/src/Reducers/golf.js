@@ -17,19 +17,22 @@ const slice = createSlice({
     setRounds: (state, action) => {
       state.rounds = action.payload
     },
+    addRound: (state, action) => {
+      state.rounds = [...state.rounds, action.payload]
+    },
+    deleteRound: (state, action) => {
+      state.rounds =[...state].rounds.filter(round => round.id !== action.payload.id)
+    },
     newRound: (state, action) => {
       state.newRound = action.payload
     },
     newRoundCourse: (state, action) => {
       state.newRoundCourse = action.payload
-    },
-    addRound: (state, action) => {
-      state.rounds = [...state.rounds, action.payload]
     }
   }
 });
 
-const { setCourses, setRounds, newRound, newRoundCourse, addRound } = slice.actions;
+const { setCourses, setRounds, newRound, newRoundCourse, addRound, deleteRound } = slice.actions;
 
-export { setCourses, setRounds, newRound, newRoundCourse, addRound}
+export { setCourses, setRounds, newRound, newRoundCourse, addRound, deleteRound }
 export default slice.reducer;

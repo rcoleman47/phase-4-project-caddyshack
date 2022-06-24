@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addRound } from '../Reducers/golf';
 
@@ -17,8 +16,6 @@ export default function ScorecardHoles({hole}) {
   const { gir, fir, putts, score } = form
 
   const dispatch = useDispatch();
-  const nav      = useNavigate();
-
 
   const handleChange = (e) => {
     let key = e.target.name;
@@ -42,9 +39,7 @@ export default function ScorecardHoles({hole}) {
     .then(r=>{
       if(r.ok){ 
         r.json().then(round => dispatch(addRound(round)));
-        
-        // dispatch(authorize());
-        
+
         setError(null);
       }
       else

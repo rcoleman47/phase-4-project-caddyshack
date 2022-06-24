@@ -1,5 +1,8 @@
+import { useDispatch } from 'react-redux';
+import { deleteRound } from '../Reducers/golf';
+
 export default function RoundCard({round}) {
-  const {course, tee, score, score_to_par, breakdown} = round
+  const {course, tee, score, score_to_par, breakdown, id} = round
 
   const renderHoles= breakdown.map( hole => {
     return (
@@ -10,7 +13,21 @@ export default function RoundCard({round}) {
     return (
       <th key={hole.id}>{hole.score}</th>
     )
-  })
+  });
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    console.log(id)
+
+    fetch(`/rounds/${id}`, {
+      method: 'DELETE',
+    })
+    .then(r => r.json())
+    .then(round => dispatch(deleteRound(round)));
+
+    window.location.reload()
+  };
 
   return (
     <div className="roundCard">
@@ -39,6 +56,7 @@ export default function RoundCard({round}) {
         </tbody>
       </table>
       <h2>Total Score: {score}</h2>
+      <button onClick={handleClick}>Delete</button>
     </div>
   )
 }
