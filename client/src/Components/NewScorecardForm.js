@@ -12,7 +12,8 @@ export default function NewScorecardForm() {
 
   const handleClick = () => {
     nav('/rounds');
-    window.location.reload()
+    
+    window.location.reload();
   };
 
   return (

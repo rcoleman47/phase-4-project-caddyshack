@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../Reducers/user';
-// import { authorize } from '../Reducers/auth';
 
 export default function Signup() {
   const [error, setError]  = useState(null);
@@ -38,8 +37,6 @@ export default function Signup() {
       if(r.ok){ 
         r.json().then(r => dispatch(login(r)));
         
-        // dispatch(authorize());
-        
         setForm({
           username: '',
           email: '',
@@ -48,7 +45,7 @@ export default function Signup() {
         
         setError(null);
         
-        nav('/');
+        nav('/courses');
       }
       else
         r.json().then(json=>setError(json.error))

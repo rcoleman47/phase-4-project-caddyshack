@@ -6,7 +6,6 @@ export default function Rounds() {
 
   const renderRounds = rounds ? rounds.map( round => <RoundCard key={round.id} round={round} />) : <li>Loading...</li>;
 
-  console.log(rounds)
   return (
      <div className='roundContainer'>
        {renderRounds}

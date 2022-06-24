@@ -20,7 +20,6 @@ export default function RoundCard({round}) {
 
 
   const handleClick = () => {
-    console.log(id)
 
     fetch(`/rounds/${id}`, {
       method: 'DELETE',

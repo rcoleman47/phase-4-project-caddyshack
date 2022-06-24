@@ -25,7 +25,7 @@ export default function ScorecardHoles({hole}) {
       ...form,
       [key]: value
     });
-    console.log(id);
+  
   };
 
   const handleSubmit = (e) => {
