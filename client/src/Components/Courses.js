@@ -6,7 +6,7 @@ export default function Courses() {
 
   const courses       = useSelector(state => state.golf.courses);
 
-  const renderCourses = courses.map( course => <CourseCard key={course.id} course={course} />);
+  const renderCourses = courses ? courses.map( course => <CourseCard key={course.id} course={course} />) : <li>Loading...</li>;
 
   return (
     <div className='courseContainer'>
