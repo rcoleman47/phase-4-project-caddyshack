@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate} from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Reducers/user';
 // import { authorize } from '../Reducers/auth';
 import Home from './Home';
@@ -11,6 +11,7 @@ import Courses from './Courses';
 import Rounds from './Rounds';
 
 function App() {
+  const user     = useSelector(state => state.user);
   const dispatch = useDispatch();
   const nav      = useNavigate();
 
@@ -40,7 +41,7 @@ function App() {
         <Route path='/signup' element={<Signup  />} />
 
         <Route index='/' element={<Home />}>
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={<Dashboard user={user} />} />
           <Route path='/courses' element={<Courses />} />
           <Route path='/rounds' element={<Rounds />} />
         </Route>

@@ -9,7 +9,6 @@ export default function Rounds() {
   return (
      <div className='roundContainer'>
        {renderRounds}
-      <h1>New Round</h1>
     </div>
   )
 }

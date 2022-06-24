@@ -7,7 +7,7 @@ import { logout } from '../Reducers/user';
 
 export default function Home() {
   const user     = useSelector(state => state.user.value);
-  const rounds   = useSelector(state => state.golf.rounds);
+
   
   const dispatch = useDispatch();
   const nav      = useNavigate();
@@ -33,13 +33,13 @@ export default function Home() {
     nav('/login'); 
   };
 
-  console.log(rounds)
+  console.log(user)
 
-  const navStyle = ({isActive})=>({color: isActive ? "charcoal":"black"});
+  const navStyle = ({isActive})=>({color: isActive ? "rgb(25, 100, 25)":"black"});
 
   return (
     <>
-      <h1>ScoreCaddie {user.username}!</h1>
+      <h1 style={{color: 'rgb(25, 100, 25)'}}>Welcome to CaddyShack {user.username}!</h1>
       <button onClick={handleLogout} >Logout</button>
       <div className='navbar'>
         <NavLink style={navStyle} to='/dashboard'>Dashboard</NavLink>

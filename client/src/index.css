@@ -20,13 +20,46 @@ code {
   text-align: center;
   align-content: center;
 }
+
+
 .navbar {
   display: flex;
   justify-content: space-evenly;
   align-items: left;
   margin: 15px 75px 0px 35px;
   height: 75px;
-  font-size: x-large;
+  font-size: large;
+  font-weight: 900;
+}
+
+/* dashboard */
+.dashboardContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  top: 50%;
+  left: 50%;
+  gap: 25px 25px;
+}
+
+.dashboard{
+  height: 155px;
+  width: 375px;
+  background: white;
+  justify-content: center;
+  text-align: center;
+  margin: 0px 10px 0px 20px;
+  box-shadow: 0 0 60px
+}
+
+.dashboard ul {
+  margin: 0 0 0 50px;
+}
+
+.dashboard li {
+  font-weight: 800;
+  text-align: left;
 }
 
 /* course cards */
@@ -47,13 +80,8 @@ code {
   background: white;
   text-align: center;
   margin: 50px 55px 0px 50px;
-  box-shadow: 0 0 50px;
-  border-radius: 15%;
-}
-
-.courseCard img {
-  border-top-right-radius: 15%;
-  border-top-left-radius: 15%;
+  box-shadow: 0 0 60px
+  /* border-radius: 15%; */
 }
 
 .courseCard p {
@@ -80,16 +108,19 @@ code {
   background: white;
   text-align: center;
   margin: 50px 180px 0px 200px;
-  box-shadow: 0 0 50px;
-  border-radius: 12%;
+  box-shadow: 0 0 60px
+  /* border-radius: 14%; */
 }
 
 .roundCard .first{
   background-color:rgb(25, 100, 25);
   color: white;
-  border-top-left-radius: 13%;
-  border-top-right-radius: 13%;
   margin: 0px 0px 0px 0px;
+  border-collapse: collapse;
+}
+
+.first th {
+  border: 3px solid black;
 }
 
 .roundCard .second{

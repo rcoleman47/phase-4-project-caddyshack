@@ -43,7 +43,7 @@ export default function Login() {
         
         setError(null);
 
-        nav('/');
+        nav('/dashboard');
       }
       else
         r.json().then(json=>setError(json.error));
