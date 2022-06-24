@@ -3,22 +3,22 @@ import { useDispatch } from 'react-redux';
 import { addRound } from '../Reducers/golf';
 
 export default function ScorecardHoles({hole}) {
-  const [error, setError]  = useState(null);
-  const [form, setForm]    = useState({
+  const [error, setError]          = useState(null);
+  const [form, setForm]            = useState({
     gir: hole.gir,
     fir: hole.fir,
     putts: hole.putts,
     score: hole.score
   });
 
-  const {id, hole_number} = hole;
+  const dispatch                   = useDispatch();
 
-  const { gir, fir, putts, score } = form
+  const {id, hole_number}          = hole;
 
-  const dispatch = useDispatch();
+  const { gir, fir, putts, score } = form;
 
   const handleChange = (e) => {
-    let key = e.target.name;
+    let key   = e.target.name;
     let value = e.target.value;
   
     setForm({
@@ -52,9 +52,9 @@ export default function ScorecardHoles({hole}) {
     <div>
     
    
-    <form className='course' onSubmit={handleSubmit} >
+    <form className='scorcard' onSubmit={handleSubmit} >
 
-      <label style={{fontWeight: '600',background: 'white'}}>
+      <label style={{fontWeight: '600'}}>
         Hole Number:
         <input 
           name='hole_number'
@@ -62,7 +62,7 @@ export default function ScorecardHoles({hole}) {
           readOnly/>
       </label>
 
-      <label style={{fontWeight: '600',background: 'white'}}>
+      <label style={{fontWeight: '600'}}>
         Score:
         <input 
           name='score'
@@ -72,7 +72,7 @@ export default function ScorecardHoles({hole}) {
         />
       </label>
 
-      <label style={{fontWeight: '600',background: 'white'}}>
+      <label style={{fontWeight: '600'}}>
         GIR:
         <input 
           name='gir'
@@ -81,7 +81,7 @@ export default function ScorecardHoles({hole}) {
         />
       </label>
 
-      <label style={{fontWeight: '600',background: 'white'}}>
+      <label style={{fontWeight: '600'}}>
         FIR:
         <input 
           name='fir'
@@ -91,7 +91,7 @@ export default function ScorecardHoles({hole}) {
         />
       </label>
 
-      <label style={{fontWeight: '600',background: 'white'}}>
+      <label style={{fontWeight: '600'}}>
         Putts:
         <input 
           name='putts'

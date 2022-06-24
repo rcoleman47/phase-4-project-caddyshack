@@ -4,20 +4,23 @@ import { newRound, newRoundCourse } from '../Reducers/golf';
 import { useState } from 'react'
 
 export default function Scorecard() {
-  const [form, setForm] = useState({
+  const [form, setForm]  = useState({
     user_id: '',
     course_id: '',
     tee: '',
   });
 
-  const nav = useNavigate();
-  const dispatch = useDispatch();
-  const courses = useSelector(state => state.golf.courses);
-  const user = useSelector(state => state.user.value);
+  const nav              = useNavigate();
 
+  const dispatch         = useDispatch();
+
+  const courses          = useSelector(state => state.golf.courses);
+  const user             = useSelector(state => state.user.value);
+
+  const courseSelections = courses.map(course => <option key={course.id}>{course.course_name}</option>);
 
   const handleChange = (e) => {
-    let value = e.target.value;
+    let value  = e.target.value;
     let course = courses.filter(course => course.course_name === value)[0]
     
     dispatch(newRoundCourse(course));
@@ -39,10 +42,8 @@ export default function Scorecard() {
     .then(r=> r.json())
     .then(data => dispatch(newRound(data)));
     
-    nav('/scorecard/new')
+    nav('/scorecard/new');
   };
-
-  const courseSelections = courses.map(course => <option key={course.id}>{course.course_name}</option>);
 
   return (
     <div>

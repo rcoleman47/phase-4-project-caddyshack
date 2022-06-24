@@ -137,6 +137,30 @@ code {
   border: 1px solid black;
 }
 
+/* scorecard */
+.scorecard input {
+  width: 75px;
+  padding: 4px 5px;
+  margin: 0px 0px 5px 10px;
+  text-align: center;
+  background: white;
+  
+}
+
+.scorecard label {
+  padding: 5px 5px 8px 5px;
+  margin: 0px 10px 0px 10px;
+  background: white;
+  border: 1px solid black;
+  text-align: left;
+  box-shadow: 0 0 60px;
+}
+.scorecard input[type = "submit"] {
+  border: 1px solid black;
+  height: 35px;
+  box-shadow: 0 0 60px;
+}
+
 
 /* Login / Sign up forms */
 .box{

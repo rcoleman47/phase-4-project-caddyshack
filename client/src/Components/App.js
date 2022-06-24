@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
   const nav      = useNavigate();
 
-  useEffect(() => {
+  useEffect(()   => {
 
     fetch(`/authorized_user`)
       .then((r) => {

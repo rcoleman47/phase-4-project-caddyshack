@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 
 export default function Dashboard() {
-  const user      = useSelector(state => state.user.value);
+  const user    = useSelector(state => state.user.value);
 
-  const {rounds_played, courses_played, avg_putts_per_hole, avg_round_score, avg_strokes_to_par, fir_percentage, gir_percentage, handicap } = user
+  const {rounds_played, courses_played, avg_putts_per_hole, avg_round_score, avg_strokes_to_par, fir_percentage, gir_percentage, handicap } = user;
 
-  const courses = courses_played ? courses_played.map((course, i) => <li key={i}>{course}</li>) : <li>None</li>
+  const courses = courses_played ? courses_played.map((course, i) => <li key={i}>{course}</li>) : <li>None</li>;
 
   
   return (

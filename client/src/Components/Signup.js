@@ -56,6 +56,10 @@ export default function Signup() {
     
   };
 
+  const handleClick = () => {
+    nav('/login');
+  };
+
   const {username, email, password} = form;
 
   const passwordError = error ? error.filter( e => e.includes('Password') ) : null;
@@ -64,7 +68,11 @@ export default function Signup() {
 
   return (
     <div>
-     
+
+      <h1 style={{color: 'rgb(25, 100, 25)'}}>Welcome to CaddyShack!</h1>
+      <h4>Have an account?</h4>
+      <button onClick={handleClick}>Login</button>
+    
       <form className='box' onSubmit={handleSubmit} >
         <h1>Sign Up</h1>
 

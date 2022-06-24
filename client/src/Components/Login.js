@@ -51,11 +51,18 @@ export default function Login() {
     
   };
 
+  const handleClick = () => {
+    nav('/signup');
+  };
+
   const {username, password} = form;
 
 
   return (
     <div>
+      <h1 style={{color: 'rgb(25, 100, 25)'}}>Welcome to CaddyShack!</h1>
+      <h4>Don't have an account?</h4>
+      <button onClick={handleClick}>Sign Up</button>
       
       <form className='box' onSubmit={handleSubmit} >
         <h1>Golfer</h1>

@@ -1,5 +1,6 @@
 export default function CourseCard({course}) {
-  const {course_name, image, city, state, address, par, tee, total_distance, color } = course
+  
+  const {course_name, image, city, state, address, par, tee, total_distance, color } = course;
 
   return (
     <div className="courseCard">
