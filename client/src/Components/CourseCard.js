@@ -1,12 +1,10 @@
-
-
 export default function CourseCard({course}) {
   const {course_name, image, city, state, address, par, tee, total_distance, color } = course
   console.log(course)
 
   return (
     <div className="courseCard">
-      <img src={image} alt={course.course_name} width="300" height="250"  />
+      <img src={image} alt={course_name} width="300" height="250"  />
 
       <h3>{course_name}</h3>
 

@@ -1,13 +1,10 @@
 class RoundSerializer < ActiveModel::Serializer
-  attributes :id, :golfer, :course, :tee, :score, :score_to_par
-  
+  attributes :id, :course, :tee, :score, :score_to_par
 
+  has_many :scores, key: :breakdown
+  
   def course
     "#{object.course.name}"
-  end
-
-  def golfer
-    "#{object.user.username}"
   end
 
   def score

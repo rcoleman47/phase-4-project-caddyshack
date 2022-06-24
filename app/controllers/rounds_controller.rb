@@ -6,7 +6,7 @@ class RoundsController < ApplicationController
   end
 
   def show
-    render json: round, serializer: SingleRoundSerializer
+    render json: round
   end
 
   def create
@@ -19,7 +19,7 @@ class RoundsController < ApplicationController
 
   def update
     round.update(tee: params[:tee])
-    render json: round, serializer: SingleRoundSerializer, states: 202
+    render json: round, states: 202
   end
 
   def destroy

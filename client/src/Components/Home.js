@@ -1,12 +1,13 @@
 import { useNavigate, Outlet, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react"
-import { setCourses } from '../Reducers/golf';
+import { setCourses, setRounds } from '../Reducers/golf';
 import { logout } from '../Reducers/user';
 // import { authorize } from '../Reducers/auth';
 
 export default function Home() {
   const user     = useSelector(state => state.user.value);
+  const rounds   = useSelector(state => state.golf.rounds);
   
   const dispatch = useDispatch();
   const nav      = useNavigate();
@@ -14,7 +15,11 @@ export default function Home() {
   useEffect(() => {
     fetch('/tee_boxes')
     .then(r => r.json())
-    .then(data => dispatch(setCourses(data)));
+    .then(courses => dispatch(setCourses(courses)));
+
+    fetch('/rounds')
+    .then(r => r.json())
+    .then(rounds => dispatch(setRounds(rounds)));
   }, []);
 
   const handleLogout = () => {
@@ -27,6 +32,8 @@ export default function Home() {
 
     nav('/login'); 
   };
+
+  console.log(rounds)
 
   const navStyle = ({isActive})=>({color: isActive ? "charcoal":"black"});
 
