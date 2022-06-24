@@ -1,16 +1,14 @@
 export default function RoundCard({round}) {
   const {course, tee, score, score_to_par, breakdown} = round
 
-  console.log(breakdown)
-
   const renderHoles= breakdown.map( hole => {
     return (
-      <th>{hole.hole_number}</th>
+      <th key={hole.id}>{hole.hole_number}</th>
     )
   })
   const renderScore = breakdown.map( hole => {
     return (
-      <th>{hole.score}</th>
+      <th key={hole.id}>{hole.score}</th>
     )
   })
 

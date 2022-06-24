@@ -5,10 +5,9 @@ export default function Dashboard() {
 
   const {rounds_played, courses_played, avg_putts_per_hole, avg_round_score, avg_strokes_to_par, fir_percentage, gir_percentage, handicap } = user
 
-  const courses = courses_played.map(course => <li key={course}>{course}</li>);
-  console.log(user)
-  
+  const courses = courses_played ? courses_played.map((course, i) => <li key={i}>{course}</li>) : <li>None</li>
 
+  
   return (
     <div className="dashboardContainer">
       <div className="dashboard">

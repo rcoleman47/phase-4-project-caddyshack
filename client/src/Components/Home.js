@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react"
 import { setCourses, setRounds } from '../Reducers/golf';
 import { logout } from '../Reducers/user';
-// import { authorize } from '../Reducers/auth';
 
 export default function Home() {
   const user     = useSelector(state => state.user.value);
@@ -27,13 +26,10 @@ export default function Home() {
       method: 'DELETE',
     });
 
-    dispatch(logout());
-    //dispatch(authorize());  
+    dispatch(logout()); 
 
     nav('/login'); 
   };
-
-  console.log(user)
 
   const navStyle = ({isActive})=>({color: isActive ? "rgb(25, 100, 25)":"black"});
 
@@ -45,6 +41,7 @@ export default function Home() {
         <NavLink style={navStyle} to='/dashboard'>Dashboard</NavLink>
         <NavLink style={navStyle} to='/courses'>Courses</NavLink>
         <NavLink style={navStyle} to='/rounds'>Rounds</NavLink>
+        <NavLink style={navStyle} to='/scorecard'>Scorecard</NavLink>
       </div>
 
       <Outlet />

@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  before_action :is_authorized, only: [:create, :update, :destroy]
+  # before_action :is_authorized, only: [:create, :update, :destroy]
   def index
     rounds = current_user.rounds
     render json: rounds
@@ -12,7 +12,7 @@ class RoundsController < ApplicationController
   def create
     new_round = Round.create!(round_params)
     (1..18).each do |i|
-      Score.create!(hole_number: i, score: 4, gir: true, fir: true, round_id: new_round.id)
+      Score.create!(hole_number: i, score: 4, gir: true, fir: true, putts: 2, round_id: new_round.id)
     end
     render json: new_round, status: 201
   end

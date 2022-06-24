@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   courses: {},
-  rounds: {}
+  rounds: {},
+  newRound: {},
+  newRoundCourse: {},
 }
 
 const slice = createSlice({
@@ -14,11 +16,17 @@ const slice = createSlice({
     },
     setRounds: (state, action) => {
       state.rounds = action.payload
+    },
+    newRound: (state, action) => {
+      state.newRound = action.payload
+    },
+    newRoundCourse: (state, action) => {
+      state.newRoundCourse = action.payload
     }
   }
 });
 
-const { setCourses, setRounds } = slice.actions;
+const { setCourses, setRounds, newRound, newRoundCourse } = slice.actions;
 
-export { setCourses, setRounds } 
+export { setCourses, setRounds, newRound, newRoundCourse }
 export default slice.reducer;
