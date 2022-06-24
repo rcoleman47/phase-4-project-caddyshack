@@ -1,7 +1,5 @@
 class CoursesController < ApplicationController
 
-  before_action :is_authorized, only: [:create, :update]
-  
   def index
     courses = Course.all
     render json: courses

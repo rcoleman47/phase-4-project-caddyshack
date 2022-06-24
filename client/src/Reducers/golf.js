@@ -22,11 +22,14 @@ const slice = createSlice({
     },
     newRoundCourse: (state, action) => {
       state.newRoundCourse = action.payload
+    },
+    addRound: (state, action) => {
+      state.rounds = [...state.rounds, action.payload]
     }
   }
 });
 
-const { setCourses, setRounds, newRound, newRoundCourse } = slice.actions;
+const { setCourses, setRounds, newRound, newRoundCourse, addRound } = slice.actions;
 
-export { setCourses, setRounds, newRound, newRoundCourse }
+export { setCourses, setRounds, newRound, newRoundCourse, addRound}
 export default slice.reducer;

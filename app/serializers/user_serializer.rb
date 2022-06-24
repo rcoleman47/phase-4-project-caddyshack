@@ -3,7 +3,7 @@ class UserSerializer < ActiveModel::Serializer
 
  
   def courses_played
-    object.courses.pluck(:name)
+    object.courses.pluck(:name).uniq
   end
 
   def avg_strokes_to_par

@@ -1,5 +1,5 @@
 class TeeBoxSerializer < ActiveModel::Serializer
-  attributes :id, :course_id, :course_name, :city, :state, :tee, :color, :par, :total_distance
+  attributes :id, :course_id, :course_name, :city, :state, :tee, :color, :par, :total_distance, :image
   
   has_many :holes
   def course_id

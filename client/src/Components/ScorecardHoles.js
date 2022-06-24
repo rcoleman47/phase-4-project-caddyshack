@@ -1,35 +1,118 @@
-export default function ScorecardHoles({hole, setEdit}) {
-  const {id, hole_number, gir, fir, putts, score} = hole;
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addRound } from '../Reducers/golf';
 
-  const handleClick = (e) => {
-    console.log(id)
-    
-    setEdit(e => !e);
+export default function ScorecardHoles({hole}) {
+  const [error, setError]  = useState(null);
+  const [form, setForm]    = useState({
+    gir: hole.gir,
+    fir: hole.fir,
+    putts: hole.putts,
+    score: hole.score
+  });
+
+  const {id, hole_number} = hole;
+
+  const { gir, fir, putts, score } = form
+
+  const dispatch = useDispatch();
+  const nav      = useNavigate();
+
+
+  const handleChange = (e) => {
+    let key = e.target.name;
+    let value = e.target.value;
+  
+    setForm({
+      ...form,
+      [key]: value
+    });
+    console.log(id);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch(`/scores/${id}`, {
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(form)
+    })
+    .then(r=>{
+      if(r.ok){ 
+        r.json().then(round => dispatch(addRound(round)));
+        
+        // dispatch(authorize());
+        
+        setError(null);
+      }
+      else
+        r.json().then(json=>setError(json.error));
+    });
+
   };
 
   return (
-    <div className="dashboard">
-      <table>
-        <thead>
-          <tr>
-            <th>Hole: {hole_number}</th>
-          </tr>
-          <tr>
-            <th>Score: {score}</th>
-          </tr>
-          <tr>
-            <th>GIR: {gir ? "Yes" : "No" }</th>
-          </tr>
-          <tr>
-            <th>FIR: {fir ? "Yes" : "No" }</th>
-          </tr>
-          <tr>
-            <th>Putts: {putts}</th>
-          </tr>
-        </thead>
-      </table>
-      <button onClick={handleClick}>Edit Hole</button>
-    </div>
+    <div>
+    
+   
+    <form className='course' onSubmit={handleSubmit} >
+
+      <label style={{fontWeight: '600',background: 'white'}}>
+        Hole Number:
+        <input 
+          name='hole_number'
+          type='text' value={hole_number} 
+          readOnly/>
+      </label>
+
+      <label style={{fontWeight: '600',background: 'white'}}>
+        Score:
+        <input 
+          name='score'
+          type='number' 
+          value={score} 
+          onChange={handleChange} 
+        />
+      </label>
+
+      <label style={{fontWeight: '600',background: 'white'}}>
+        GIR:
+        <input 
+          name='gir'
+          type='text' value={gir} 
+          onChange={handleChange} 
+        />
+      </label>
+
+      <label style={{fontWeight: '600',background: 'white'}}>
+        FIR:
+        <input 
+          name='fir'
+          type='text' 
+          value={fir} 
+          onChange={handleChange} 
+        />
+      </label>
+
+      <label style={{fontWeight: '600',background: 'white'}}>
+        Putts:
+        <input 
+          name='putts'
+          type='number' 
+          value={putts} 
+          onChange={handleChange} 
+        />
+      </label>
+      
+      {error ? <h5>{error}</h5> : null}
+
+      <input type="submit" value="Submit" />
+     
+    </form>
+  </div>
+
   )
 }
 

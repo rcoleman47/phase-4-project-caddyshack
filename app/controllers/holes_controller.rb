@@ -1,7 +1,5 @@
 class HolesController < ApplicationController
 
-  before_action :is_authorized, only: [:update]
-
   def index
     holes = Hole.all
     render json: holes
@@ -20,7 +18,7 @@ class HolesController < ApplicationController
   private 
 
   def hole_params
-    params.permit(:number, :distance, :par, :tee_box_id, :handicap)
+    params.permit(:number, :distance, :par, :tee_box_id, :handicap, :id)
   end
 
   def hole

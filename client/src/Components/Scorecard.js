@@ -47,7 +47,7 @@ export default function Scorecard() {
   return (
     <div>
       
-      <form className='box' onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit} >
         <h2>Select Course:</h2>
           <select onChange={handleChange} >
             <option>Select Course...</option>

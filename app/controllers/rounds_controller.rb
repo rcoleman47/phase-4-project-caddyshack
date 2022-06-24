@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  # before_action :is_authorized, only: [:create, :update, :destroy]
+
   def index
     rounds = current_user.rounds
     render json: rounds
