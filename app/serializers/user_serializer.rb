@@ -11,11 +11,11 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def gir_percentage
-    (object.scores.where(fir: true).count / object.scores.count) * 100
+    (((object.scores.where(gir: true).count).to_f / object.scores.count) * 100).round
   end
 
   def fir_percentage
-    (object.scores.where(fir: true).count / object.scores.count) * 100
+   ( ((object.scores.where(fir: true).count).to_f / object.scores.count) * 100).round
   end
 
   def avg_putts_per_hole

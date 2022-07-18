@@ -70,6 +70,7 @@ export default function Login() {
           <input 
             name='username'
             type='text' value={username} 
+            autoComplete='off'
             onChange={handleChange} 
           />
         </label>

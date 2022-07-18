@@ -38,8 +38,10 @@ export default function ScorecardHoles({hole}) {
     })
     .then(r=>{
       if(r.ok){ 
-        r.json().then(round => dispatch(addRound(round)));
-
+        r.json().then(round => {
+          dispatch(addRound(round))
+          console.log(round)
+        })
         setError(null);
       }
       else
