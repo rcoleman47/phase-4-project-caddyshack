@@ -11,46 +11,47 @@ export default function Dashboard() {
   return (
     <div className="dashboardContainer">
       <div className="dashboard">
-        <h2>Number of Rounds Played:</h2>
-        <h3>{rounds_played}</h3>
+        <h2>Number of Rounds:</h2>
+        <h1>{rounds_played}</h1>
       </div>
 
       <div className="dashboard">
         <h2>Courses Played:</h2>
-        <ul>
-          {courses}
-        </ul>
-        
+        <div className='list-container'>
+          <ul>
+            {courses}
+          </ul>
+        </div>
       </div>
 
       <div className="dashboard">
         <h2>Average Score:</h2>
-        <h3>{avg_round_score}</h3>
+        <h1>{avg_round_score}</h1>
       </div>
 
       <div className="dashboard">
         <h2>Strokes to Par:</h2>
-        <h3>{avg_strokes_to_par}</h3>
+        <h1>{avg_strokes_to_par}</h1>
       </div>
 
       <div className="dashboard">
         <h2>Handicap:</h2>
-        <h3>{handicap}</h3>
+        <h1>{handicap}</h1>
       </div>
 
       <div className="dashboard">
         <h2>Putts Per Hole:</h2>
-        <h3>{avg_putts_per_hole}</h3>
+        <h1>{avg_putts_per_hole}</h1>
       </div>
 
       <div className="dashboard">
-        <h2>GIR Percentage:</h2>
-        <h3>{gir_percentage}%</h3>
+        <h2>GIR %:</h2>
+        <h1>{gir_percentage}</h1>
       </div>
 
       <div className="dashboard">
-        <h2>FIR Percentage:</h2>
-        <h3>{fir_percentage}%</h3>
+        <h2>FIR %:</h2>
+        <h1>{fir_percentage}</h1>
       </div>
     
   </div>

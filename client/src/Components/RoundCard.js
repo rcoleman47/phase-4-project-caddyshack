@@ -5,14 +5,15 @@ export default function RoundCard({round}) {
   const {course, tee, score, score_to_par, breakdown, id} = round;
 
   const dispatch = useDispatch();
+  console.log(breakdown);
   
-  const renderHoles = breakdown.map( hole => {
+  const renderHoles = [...breakdown].sort((a, b) => a.hole_number - b.hole_number).map( hole => {
     return (
       <th key={hole.id}>{hole.hole_number}</th>
     )
   });
 
-  const renderScore = breakdown.map( hole => {
+  const renderScore = [...breakdown].sort((a, b) => a.hole_number - b.hole_number).map( hole => {
     return (
       <th key={hole.id}>{hole.score}</th>
     )
