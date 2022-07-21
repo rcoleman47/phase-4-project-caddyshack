@@ -3,7 +3,7 @@ class TeeBoxSerializer < ActiveModel::Serializer
   
   has_many :holes
   def course_id
-    "#{object.course.id}"
+    object.course.id
   end
 
   def course_name

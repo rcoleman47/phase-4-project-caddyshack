@@ -2,7 +2,7 @@ class ScoresController < ApplicationController
 
   def update
     score.update!(score_params)
-    render json: score, status: 202
+    render json: score.round, serializer: RoundSerializer, status: 202
   end
 
   private 

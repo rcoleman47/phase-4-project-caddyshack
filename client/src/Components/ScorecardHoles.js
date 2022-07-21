@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addRound } from '../Reducers/golf';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateNewRoundHole, updateRounds } from '../Reducers/golf';
 
 export default function ScorecardHoles({hole}) {
   const [error, setError]          = useState(null);
@@ -10,6 +10,8 @@ export default function ScorecardHoles({hole}) {
     putts: hole.putts,
     score: hole.score
   });
+
+  const round = useSelector(state => state.golf.newRound);
 
   const dispatch                   = useDispatch();
 
@@ -39,8 +41,8 @@ export default function ScorecardHoles({hole}) {
     .then(r=>{
       if(r.ok){ 
         r.json().then(round => {
-          dispatch(addRound(round))
-          console.log(round)
+          console.log(round);
+          dispatch(updateRounds(round))
         })
         setError(null);
       }
