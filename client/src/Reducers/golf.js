@@ -21,7 +21,7 @@ const slice = createSlice({
       state.rounds = [...state.rounds, action.payload]
     },
     deleteRound: (state, action) => {
-      state.rounds =[...state].rounds.filter(round => round.id !== action.payload.id)
+      state.rounds = state.rounds.filter(round => round.id !== action.payload.id)
     },
     newRound: (state, action) => {
       state.newRound = action.payload

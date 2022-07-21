@@ -5,7 +5,6 @@ export default function RoundCard({round}) {
   const {course, tee, score, score_to_par, breakdown, id} = round;
 
   const dispatch = useDispatch();
-  console.log(breakdown);
   
   const renderHoles = [...breakdown].sort((a, b) => a.hole_number - b.hole_number).map( hole => {
     return (
@@ -21,14 +20,12 @@ export default function RoundCard({round}) {
 
 
   const handleClick = () => {
-
+    
     fetch(`/rounds/${id}`, {
       method: 'DELETE',
     })
     .then(r => r.json())
     .then(round => dispatch(deleteRound(round)));
-
-    window.location.reload();
   };
 
   

@@ -23,8 +23,8 @@ class RoundsController < ApplicationController
   end
 
   def destroy
-    render json: round, status: 204
-    round.destroy
+    render json: round
+    round.destroy!
   end
 
 
