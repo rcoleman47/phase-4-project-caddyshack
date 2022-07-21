@@ -8,13 +8,13 @@ export default function RoundCard({round}) {
   
   const renderHoles = [...breakdown].sort((a, b) => a.hole_number - b.hole_number).map( hole => {
     return (
-      <th key={hole.id}>{hole.hole_number}</th>
+      <th style={{width: '30px'}} key={hole.id}>{hole.hole_number}</th>
     )
   });
 
   const renderScore = [...breakdown].sort((a, b) => a.hole_number - b.hole_number).map( hole => {
     return (
-      <th key={hole.id}>{hole.score}</th>
+      <th style={{width: '30px'}} key={hole.id}>{hole.score}</th>
     )
   });
 
