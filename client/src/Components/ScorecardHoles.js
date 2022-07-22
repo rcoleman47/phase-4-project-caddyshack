@@ -41,7 +41,6 @@ export default function ScorecardHoles({hole}) {
     .then(r=>{
       if(r.ok){ 
         r.json().then(round => {
-          console.log(round);
           dispatch(updateRounds(round))
         })
         setError(null);
