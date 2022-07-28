@@ -1,6 +1,6 @@
 # README
 
-Welcome to the Genesis Project Estimator!
+Welcome to the CaddyShack!
 
 To get started run the following in your terminal:
 
@@ -17,17 +17,15 @@ In a seperate terminal window, run the following:
 
 Now that both the servers are up and running, you can login to application with one of the users created from the seed data:
 
-  * Schema Construction has fake company data for projects, employees and subcontractors. You can go in and make changes to this existing company with the following login information:
+  * CaddyShack has a couple of users with some golf statistics created from the seed data and can be viewed with the following credentials:
 
-    * email: ra@gmail.com 
-    * password: 1234
-    * this is an executive account and therefore has access to all company projects not just projects assigned to the account by another executive.
+    * username: ryanadams
+    * password: password
 
-    * email: abc@gmail.com
-    * password: 1234
-    * this is a non-executive account and therefore has access to only project assigned to the account by an executive within the company. 
+    * username: coleman
+    * password: password
 
 
-Or you can register a new company and sign up with an executive account to manage your own construction company!
+Or you can create a new user an start playing some rounds!
 
-Please let me know what you think about this application and feel free to give feedback. This is one of my first apps and I am still working on cleaning up/optimizing.
+Please let me know what you think about this application and feel free to give feedback. I am currently still working on adding features to this application like the ability to add coursese so that users don't have to travel to Oklahoma or Georgia to utilize this application. This is one of my first apps and I am still working on cleaning up/optimizing.
