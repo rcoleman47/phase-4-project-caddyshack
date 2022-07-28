@@ -10,7 +10,7 @@ const slice = createSlice({
   }
 });
 
-const { authorize } = slice.actions;
 
-export { authorize };
+
+export const { authorize } = slice.actions;
 export default slice.reducer;
