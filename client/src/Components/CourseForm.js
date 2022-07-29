@@ -58,8 +58,10 @@ export default function CourseForm() {
         Name:
         <input 
           name='name'
-          type='text' value={name} 
-          readOnly/>
+          type='text' 
+          value={name} 
+          onChange={handleChange} 
+          />
       </label>
 
       <label style={{fontWeight: '600'}}>
@@ -96,7 +98,7 @@ export default function CourseForm() {
         Course Logo:
         <input 
           name='image_url'
-          type='number' 
+          type='text' 
           value={image_url} 
           onChange={handleChange} 
         />

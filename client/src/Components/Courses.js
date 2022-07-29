@@ -11,7 +11,9 @@ export default function Courses() {
 
   const renderCourseForm = () => {
     setShowCourseForm(showForm => !showForm)
-  }
+  };
+
+  console.log(courses);
 
   const renderCourses = courses ? courses.map( course => <CourseCard key={course.id} course={course} />) : <li>Loading...</li>;
 

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addRound, newRound, newRoundCourse } from '../Reducers/golf';
 import { useState } from 'react'
+import { addCoursePlayed } from '../Reducers/user';
 
 export default function Scorecard() {
   const [form, setForm]  = useState({
@@ -43,6 +44,7 @@ export default function Scorecard() {
     .then(round =>  {
       dispatch(addRound(round))
       dispatch(newRound(round))
+      dispatch(addCoursePlayed(round))
     });
     nav('/scorecard/new');
   };
