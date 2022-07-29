@@ -44,7 +44,7 @@ export default function Scorecard() {
     .then(round =>  {
       dispatch(addRound(round))
       dispatch(newRound(round))
-      dispatch(addCoursePlayed(round))
+      // dispatch(addCoursePlayed(round))
     });
     nav('/scorecard/new');
   };
