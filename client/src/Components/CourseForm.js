@@ -5,14 +5,14 @@ import { addCourse } from '../Reducers/golf';
 export default function CourseForm() {
   const [error, setError]          = useState(null);
   const [form, setForm]            = useState({
-    name: '',
-    address: '',
-    city: '',
-    state: '',
+    name:      '',
+    address:   '',
+    city:      '',
+    state:     '',
     image_url: ''
   });
 
-  const dispatch                   = useDispatch();
+  const dispatch = useDispatch();
 
   const { name, address, city, state, image_url } = form;
 

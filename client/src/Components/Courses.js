@@ -7,15 +7,13 @@ import CourseForm from './CourseForm';
 export default function Courses() {
   const [showCourseForm, setShowCourseForm] = useState(false);
 
-  const courses       = useSelector(state => state.golf.courses);
+  const courses          = useSelector(state => state.golf.courses);
 
   const renderCourseForm = () => {
     setShowCourseForm(showForm => !showForm)
   };
-
-  console.log(courses);
-
-  const renderCourses = courses ? courses.map( course => <CourseCard key={course.id} course={course} />) : <li>Loading...</li>;
+  
+  const renderCourses    = courses ? courses.map( course => <CourseCard key={course.id} course={course} />) : <li>Loading...</li>;
 
   return (
     <>

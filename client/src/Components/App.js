@@ -34,15 +34,15 @@ function App() {
   return (
     <div id="appBody">
       <Routes>
-        <Route path='/login' element={<Login />} />
+        <Route path='/login'  element={<Login />} />
         <Route path='/signup' element={<Signup  />} />
 
-        <Route index='/' element={<Home />}>
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/courses' element={<Courses />} />
-          <Route path='/rounds' element={<Rounds />} />
-          <Route path='/scorecard' element={<Scorecard />} />
-          <Route path='/scorecard/new' element={<NewScorecardForm  />} />
+        <Route index='/'      element={<Home />}>
+          <Route path='/dashboard'      element={<Dashboard />} />
+          <Route path='/courses'        element={<Courses />} />
+          <Route path='/rounds'         element={<Rounds />} />
+          <Route path='/scorecard'      element={<Scorecard />} />
+          <Route path='/scorecard/new'  element={<NewScorecardForm  />} />
         </Route>
       </Routes>
     </div>
